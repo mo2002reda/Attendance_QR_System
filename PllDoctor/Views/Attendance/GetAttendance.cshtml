@@ -1,0 +1,47 @@
+﻿@using PllDoctor.DTO
+@model IEnumerable<AttendanceModelDTO>
+@{
+    ViewData["Title"] = "GetAttendance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header>
+    <style>
+
+    </style>
+</header>
+<body>
+@if (Model.Count() > 0)
+    {
+        <div class="col-12">
+            <center><h1><strong>Attendance OF This Day</strong></h1></center>
+        </div>
+    <div class="row-cols-md-auto">
+    <div class="col-md-4">
+        <a asp-action="AddStudent" asp-controller="Attendance" class="btn btn-success">Add Student Manually</a>
+    </div>
+    </div>
+    <table class="table table-info table-hover mt-4">
+        <thead class="table-dark">
+        <th><center>Student Name</center></th>
+        <th><center>Student Id</center></th>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><center>@item.StudentName</center></td>
+                    <td><center>@item.STDId</center></td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+   
+}
+else
+{
+    <div class="mt-5 alert alert-warning">
+        <h1>NoT Founded Attendance For This Subject</h1>
+    </div>
+ }
+</body>
+

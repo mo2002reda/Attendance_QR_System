@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "CheckYourInbox";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<h1 style="text-decoration-color:revert">Check Your Inbox</h1>
+<div class="main-agileinfo">
+	<div class="agileits-top">
+		<form asp-controller="Account" asp-action="CheckYourInbox">
+			<p>
+				Password Reset Link Has been Sent To Your Email , Please Check Your Inbox
+				<br />
+				<a href="https://mail.google.com/mail/u/0/#inbox">Go To Your Inbox</a>
+			</p>
+		</form>
+	</div>
+</div>

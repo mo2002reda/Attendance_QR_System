@@ -1,0 +1,36 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 90%;
+}
+
+.wallpaper {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('~/Files/Images/theend.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+body {
+    background: linear-gradient(126.22deg, #2352A2 18.49%, rgba(35, 82, 162, 0.57) 101.97%);
+    background: #2352A2;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+    font: inherit;
+    vertical-align: baseline;
+}

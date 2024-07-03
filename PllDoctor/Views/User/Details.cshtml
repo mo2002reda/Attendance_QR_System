@@ -1,0 +1,29 @@
+﻿@using PllDoctor.Views.Account
+@model UserViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Name's Informations</h1>
+<body>
+    <form>
+        <div class="form-group">
+            <label asp-for="Id" class="form-label">Id</label>
+            <input readonly class="form-control" asp-for="Id">
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="form-label">Email</label>
+            <input readonly class="form-control" asp-for="Email">
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input readonly class="form-control" asp-for="Name">
+        </div>
+        <br />
+        <br />
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Edit</a> | 
+        <a asp-action="Index" class="btn btn-light">Back To List</a>
+    </form>
+</body>
+

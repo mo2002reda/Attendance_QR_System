@@ -1,0 +1,47 @@
+﻿@model SubjectViewModel
+@{
+    ViewData["Title"] = "Generate QR Code";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate QR-Code</title>
+</head>
+<body >
+     <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 80vh;">
+            <div class="col-md-6 main-agileinfo">
+                <div class="text-center" id="QRImage0">
+                    <div class="wthree-text">
+                            <label class="anim">
+                            <img src="@ViewBag.QrCodeUri0" class="img-thumbnail"  />
+                            </label>
+                            <div class="clear"></div>
+                     </div>
+                </div>
+                <div class="text-center" id="QRImage1">
+                    <div class="wthree-text">
+                        <label class="anim">
+                            <img src="@ViewBag.QrCodeUri1" class="img-thumbnail" />
+                        </label>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="text-center" id="QRImage2">
+                    <div class="wthree-text">
+                        <label class="anim">
+                            <img src="@ViewBag.QrCodeUri2" class="img-thumbnail" />
+                        </label>
+                        <div class="clear"></div>
+                    </div>
+            </div>
+        </div>
+    </div> 
+   
+</body>
+</html>
+<script src="~/js/site.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

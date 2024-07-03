@@ -1,0 +1,27 @@
+﻿@using Dll.Entity
+@model Subject
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update @Model.Name </h1>
+<div readonly type="text" asp-validation-summary="All" class="text-danger">
+    
+</div>
+<form asp-action="Update">
+    <div class="mb-3">
+        <label asp-for="@Model.Name" class="form-label" style="color: black; font-weight: bold;">Subject Name</label>
+        <input asp-for="@Model.Name" type="text" class="form-control" >
+        
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Code" class="form-label" style="color: black; font-weight: bold;">Subject Code</label>
+        <input asp-for="@Model.Code" type="text" class="form-control">
+        <span asp-validation-for="@Model.Code"></span> 
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Save">
+    <a asp-action="GetAllSubjects" class="btn btn-secondary">Cancle</a>
+   
+</form>

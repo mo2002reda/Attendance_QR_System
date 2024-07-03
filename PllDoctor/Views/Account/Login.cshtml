@@ -1,0 +1,41 @@
+﻿@model SigninViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<style>
+	.text-danger {
+		color: #dc3545;
+		font-weight: bold;
+	}
+</style>
+</header>
+<h1 class="text-center" style="color: black; font-weight: bold;">Welcome back To Login</h1>
+<div class="main-agileinfo">
+	<div class="agileits-top">
+		<form asp-controller="Account" asp-action="Login">
+			<span asp-validation-for="@Model.Email" class="text-danger"></span>
+			<input class="text email" type="email" asp-for=@Model.Email placeholder="Email" required="">
+			
+			<span asp-validation-for="@Model.Password" class="text-danger"></span>
+			<input class="text" type="password" asp-for=@Model.Password placeholder="Password" required="">
+
+			<div class="wthree-text">
+				<label class="anim">
+					<input type="checkbox" asp-for="@Model.RememberMe" class="checkbox" >
+					<span>Remember Me</span>
+				</label>
+				<div class="clear"> </div>
+			</div>
+			<input type="submit" value="SIGNIN">
+		</form>
+		<p>I Don't have an Account? <a href="/Account/SignUp"> SignUp Now!</a></p>
+		<br />
+		<p>Forget My Password!! <a href="/Account/ForgetPassword"> Reset </a></p>
+	</div>
+</div>
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
+

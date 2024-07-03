@@ -1,0 +1,125 @@
+﻿@model IEnumerable<SubjectViewModel>
+@{
+    ViewData["Title"] = "GetAllSubjects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header>
+    <style>
+        .icon-button {
+           border: none;
+            background: none; 
+             padding: 0;
+            cursor: pointer;
+            color:blue;
+            
+        }
+
+            .icon-button i {
+                color: blue; 
+            }
+
+        .icon-search{
+             border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            color: InfoText;
+        }
+
+        .icon-search i {
+            color: seagreen;
+        }
+    </style>
+</header>
+
+<body background="#2352A2">
+   
+    @if (@TempData["Updated"] is not null)
+    {<h3 class="alert alert-success " id="Notifications">@TempData["Updated"]</h3>}
+    @if (@TempData["Removed"] is not null)
+    {
+        <h3 class=" alert alert-warning " id="Notifications">@TempData["Removed"]</h3>
+    }    
+
+<br />
+<br />
+@if(Model.Count() >0)
+    {
+        <h1 class="text-center" style="color: black; font-weight: bold;"><center><strong>All Subjects</strong></center></h1>
+        <div class="m-2">
+            <form asp-action="GetAllSubjects" class="row offset-2 ">
+                <div class="col-8">
+                    <input class="form-control" type="text" name="SubjectName" placeholder="Subject's Name"></input>
+                </div>
+
+                <div class="col-4">
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </form>
+        </div>
+       
+        
+        <table class="table table-dark table-hover mt-4">     
+        <thead>
+            <tr>
+                <th scope="col">Subjects Name</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Download Attendance</th>
+                <th scope="col">QR-CODE</th>
+                <th scope="col">Attendance</th>
+                    
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@item.id">
+                           <i class="fas fa-edit text-success"></i>
+                        </a>
+                    </td>
+                    <td>
+                            <a asp-action="DeleteSubjects" asp-route-id="@item.id">
+                                <i class="fas fa-trash text-danger"></i>
+                        </a>
+                    </td>
+                        <td>
+                            <form asp-controller="Attendance" asp-action="ExportFile">
+                                <input asp-for="@item.Name" name="SubjectName" value="@item.Name" hidden />
+                                <button type="submit" class="icon-button"><i class="fas fa-save"></i> Save File</button>
+                            </form>
+                        </td>
+                    <td>
+                            <form asp-controller="Attendance" asp-action="CreateQRCode" method="post">
+                                <input asp-for="@item.Name" name="Name" value="@item.Name" hidden />
+                             <input type="submit" value="Generate QR Code" class="btn btn-lg btn-success" />
+                            </form>
+                               
+                    </td>
+                    <td>
+                            <form asp-controller="Attendance" asp-action="GetAttendance">
+                                <input asp-for="@item.Name" name="SubjectName" value="@item.Name" hidden />
+                                @* <input asp-for="@item." name="SubjectName" value="@item.Name" hidden /> *@
+                                <input type="submit" value="Show Attendance" class="btn btn-lg btn-success" />
+                            </form>
+                        </td>
+                        
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else{
+   <div class="mt-5 alert alert-warning">
+            <h1>No Subjects Added</h1>
+   </div> 
+}
+</body>
+
+   
+   
+
+

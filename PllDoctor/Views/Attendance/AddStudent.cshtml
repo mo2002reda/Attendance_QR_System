@@ -1,0 +1,44 @@
+﻿@using PllDoctor.DTO
+@model AttendanceModelDTO
+@{
+    ViewData["Title"] = "AddStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var name = TempData["subject"];
+    DateTime date = DateTime.Today;
+}
+<header>
+    <style>
+        .custom-label {
+            font-size: 18px; /* Adjust the font size as needed */
+            font-weight: bold;
+        }
+        </style>
+    <center><h1><strong>Add Student To Attendance</strong></h1></center>
+</header>
+<body>
+<form asp-action="AddStudent" asp-controller="Attendance">
+    <div class="mb-3">
+        <label asp-for="@Model.StudentName" class="form-label custom-label">Student Name</label>
+        <input asp-for="@Model.StudentName" type="text" class="form-control">
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="STDId" class="form-label custom-label">Student ID</label>
+        <input asp-for="STDId" type="text" class="form-control">
+   
+    </div>
+        <div class="mb-3">
+            <label asp-for="@Model.subjectName" class="form-label custom-label">Subject Name</label>
+            <input readonly asp-for="@Model.subjectName" value="@name" type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.subjectName" class="form-label custom-label">For Day</label>
+            <input readonly asp-for="@Model.Date" value="@date" type="text" class="form-control" />
+        </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <button type="submit" Value="Add" class="btn btn-primary"> Add </button>
+        <a asp-action="GetAllSubjects" asp-controller="Subject" class="btn btn-light">Cancle</a>
+</form>
+</body>
+

@@ -1,0 +1,19 @@
+﻿body {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    color: red;
+}
+
+h6 {
+    color: red;
+    text-decoration: underline;
+}
+
+/*@font-face {
+    font-family: 'Cairo';
+    src: url('path/to/cairo-font.woff2') format('woff2'),*/ /* Modern Browsers */
+/*url('path/to/cairo-font.woff') format('woff');*/ /* Legacy Browsers */
+/*}*/

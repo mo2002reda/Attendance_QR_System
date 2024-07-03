@@ -1,0 +1,25 @@
+﻿@model SubjectViewModel
+@{
+    ViewData["Title"] = "AddSubjects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 class="text-center" style="color: black; font-weight: bold;"><strong>Add New Subject</strong></h1>
+<form asp-action="AddSubjects" asp-controller="Subject" >
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label" style="color: black; font-weight: bold;">Subject Name</label>
+        <input asp-for="Name" type="text" class="form-control"  >
+        
+    </div>
+    <div class="mb-3">
+        <label asp-for="Code" class="form-label" style="color: black; font-weight: bold;">Subject Code</label>
+        <input asp-for="Code" type="text" class="form-control" >
+        
+    </div>
+    
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <button type="submit" Value="Add" class="btn btn-primary" >Submit</button>
+    <a asp-action="GetAllSubjects" class="btn btn-light">back to list</a>
+</form>
+
